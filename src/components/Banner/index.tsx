@@ -109,7 +109,7 @@ export default function Banner() {
   };
 
   // Generate animated lines
-  const lines = Array.from({ length: 25 }, (_, i) => ({
+  const lines = Array.from({ length: 15 }, (_, i) => ({
     id: i,
     x1: seededRandom(i * 1) * 100,
     y1: seededRandom(i * 2) * 100,
@@ -148,7 +148,7 @@ export default function Banner() {
                   y1: [`${line.y1}%`, `${newY1}%`, `${line.y1}%`],
                   x2: [`${line.x2}%`, `${newX2}%`, `${line.x2}%`],
                   y2: [`${line.y2}%`, `${newY2}%`, `${line.y2}%`],
-                  opacity: [0, 0.6, 0],
+                  opacity: [0, 0.4, 0],
                 }}
                 transition={{
                   duration: line.duration,
