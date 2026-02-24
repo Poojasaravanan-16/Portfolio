@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import profilePhoto from "@/image/professionalphoto-removebg-preview.png";
 
 const About = () => {
   const imageRef = useRef<HTMLDivElement>(null);
@@ -84,8 +83,10 @@ const About = () => {
     >
       <div className="w-full h-full rounded-full overflow-hidden bg-black">
         <Image
-          src={profilePhoto}
+          src="/professionalphoto.png"
           alt="Pooja VS"
+          width={320}
+          height={320}
           className="w-full h-full object-cover"
           priority
         />
