@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IoMenu, IoClose } from "react-icons/io5";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -28,10 +27,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
     const container = document.getElementById("horizontal-container");
     if (container) {
       const handleHorizontalScroll = () => {
@@ -55,9 +50,6 @@ const Header = () => {
       
       return () => container.removeEventListener("scroll", handleHorizontalScroll);
     }
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

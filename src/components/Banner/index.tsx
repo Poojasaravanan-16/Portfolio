@@ -1,12 +1,11 @@
 "use client";
 
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import { motion, useInView, useScroll, useTransform, Variants } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 export default function Banner() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false });
   const occupation = "Backend Developer | Full-Stack Enthusiast | Cloud Learner";
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMounted, setIsMounted] = useState(false);
@@ -19,7 +18,6 @@ export default function Banner() {
 
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const opacityBg = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
   const [typewriterText] = useTypewriter({
     words: [
@@ -74,12 +72,6 @@ export default function Banner() {
     mousePosition.x,
     mousePosition.y,
     0.5
-  );
-
-  const mouseParticlesTransform = calculateMouseTransform(
-    mousePosition.x,
-    mousePosition.y,
-    0.8
   );
 
   const containerVariants: Variants = {
@@ -185,7 +177,7 @@ export default function Banner() {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate="visible"
         className="relative z-10 min-h-[100dvh] w-full flex items-center justify-center px-4 sm:px-6 md:px-8 pointer-events-auto"
       >
         <motion.div

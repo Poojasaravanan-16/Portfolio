@@ -9,7 +9,6 @@ import {
   FaGithub,
   FaLinkedin,
   FaStar,
-  FaTwitter,
 } from "react-icons/fa";
 function Contact() {
   const [name, setName] = useState("");
